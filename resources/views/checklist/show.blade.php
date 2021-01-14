@@ -85,6 +85,10 @@
                 <td>{{ $checklist->is_completed}}</td>
             </tr>
             <tr>
+                <td>Image</td>
+                <td>@if(!empty($checklist->file_name)) <img src="{{ asset('images/' . $checklist->file_name) }}" class="img-responsive" width="100" /> @endif</td>
+            </tr>
+            <tr>
                 <td>Created At</td>
                 <td>{{ $checklist->created_at}}</td>
             </tr>

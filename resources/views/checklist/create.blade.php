@@ -76,6 +76,7 @@
             @if($errors->first('name'))
                 {{ $errors->first('name') }}
             @enderror
+            <input type="file" name="image"><br>
             <input style="margin-left:5px" type="checkbox" name="status">Status</input><br>
             <button class="btn btn-primary" type="submit"">Create</button>
         </form>

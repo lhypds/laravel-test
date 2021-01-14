@@ -26,9 +26,17 @@ class ChecklistController extends Controller
 
     public function store(ChecklistRequest $request) {
         // dd($request->all());
+        // dd($request->image);
+
         $checklist = new Checklist();
         $checklist->name = $request->name;
         $checklist->is_completed = isset($request->status) ? 1 : 0;
+
+        // Store image
+        if ($request->has('image')) {
+            $path = \Storage::putFile('images', $request->file('image'));
+            $checklist->file_name = pathinfo($path)['basename'];
+        }
 
         if ($checklist->save()) {
             return redirect()->action('Web\ChecklistController@show', ['id' => $checklist->id]);
