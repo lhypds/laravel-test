@@ -1,0 +1,15 @@
+<?php
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use App\Model;
+use App\Checklist;
+use Faker\Generator as Faker;
+
+$factory->define(Checklist::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'file_name' => null,
+        'is_completed' => $faker->boolean,
+    ];
+});
